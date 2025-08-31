@@ -386,11 +386,12 @@ main {
       margin-top: 16px;
       max-width: 358px;
       gap: 14px;
+
       &::before {
         content: " ";
         position: absolute;
         top: 40px;
-        left: -16px;
+        left: -10.4vw;
         width: 135px;
         height: 115px;
         background-image: url("../image/hand.svg");

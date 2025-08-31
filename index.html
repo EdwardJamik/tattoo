@@ -10,6 +10,7 @@
   <script src="./assets/scripts/slick/slick.min.js"></script>
   <link href="./assets/scripts/slick/slick-theme.min.css" rel="stylesheet">
   <link href="./assets/scripts/slick/slick.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
 </head>
 
 <body>
@@ -51,9 +52,9 @@
         </div>
 
         <div class="list_button">
-          <a href="#">Базовий курс</a>
-          <a href="#">Підвищення кваліфікації</a>
-          <a href="#">Майстер-класи</a>
+          <a data-aos="flip-up" href="#">Базовий курс</a>
+          <a data-aos="flip-up" href="#">Підвищення кваліфікації</a>
+          <a data-aos="flip-up" href="#">Майстер-класи</a>
         </div>
       </div>
     </section>
@@ -113,14 +114,14 @@
 
         <ul class="list">
           <li>
-            <img src="./assets/image/fl_2.jpg" alt="">
+            <img data-aos="fade-right" src="./assets/image/fl_2.jpg" alt="">
             <div class="content">
               <h4>🟥 Було</h4>
               <p>Розмиті контури, втрата чіткості після загоєння (не моя робота)</p>
             </div>
           </li>
           <li>
-            <img src="./assets/image/fl_3.jpg" alt="">
+            <img data-aos="fade-left" src="./assets/image/fl_3.jpg" alt="">
             <div class="content">
               <h4>🟩 Стало</h4>
               <p>Тонкі fine line-лінії, які залишаються охайними та виразними.</p>
@@ -481,7 +482,7 @@
       </div>
     </section>
   </main>
-
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
   <script>
     document.addEventListener('DOMContentLoaded', function () {
       AOS.init({
@@ -585,9 +586,77 @@
         updateActiveButton(0)
       })
 
+    })
+
+    // jQuery
+    $(document).ready(function () {
+      let counted = false
+
+      $(window).scroll(function () {
+        let blockTop = $(".last_about").offset().top - window.innerHeight + 100
+        if (!counted && $(window).scrollTop() > blockTop) {
+          $(".last_about span").each(function () {
+            let $this = $(this)
+            let text = $this.text().replace(/[^\d.,]/g, "")
+            let isFloat = text.indexOf(".") > -1 || text.indexOf(",") > -1
+
+            let num = parseFloat(text.replace(",", "."))
+            let suffix = $this.text().replace(/[\d.,]/g, "")
+
+            $({ countNum: 0 }).animate(
+              { countNum: num },
+              {
+                duration: 2000,
+                easing: "swing",
+                step: function () {
+                  $this.text(isFloat ? this.countNum.toFixed(1) : Math.floor(this.countNum) + suffix)
+                },
+                complete: function () {
+                  $this.text(isFloat ? num.toFixed(1) + suffix : num + suffix)
+                }
+              }
+            )
+          })
+          counted = true
+        }
+      })
+    })
+
+    $(document).ready(function () {
+      const $slider = $('.prices .list')
+
+      $('.list_button a').on('click', function (e) {
+        e.preventDefault()
+
+        const text = $(this).text().trim() // текст кнопки
+
+        // Спершу скролимо до блоку
+        $('html, body').animate({
+          scrollTop: $('.prices').offset().top - 50
+        }, 600)
+
+        // Знаходимо відповідний слайд по тексту
+        setTimeout(() => {
+          let $targetItem
+
+          if (text.includes('Базовий курс')) {
+            $targetItem = $slider.find('.item:contains("Базовий курс")').first()
+          } else if (text.includes('Підвищення кваліфікації')) {
+            $targetItem = $slider.find('.item:contains("Підвищення кваліфікації")').first()
+          } else if (text.includes('Майстер-класи')) {
+            $targetItem = $slider.find('.item.masters').first()
+          }
+
+          if ($targetItem && $targetItem.length) {
+            const index = $targetItem.closest('.slick-slide').data('slick-index')
+            $slider.slick('slickGoTo', index)
+          }
+        }, 700)
+      })
     });
 
   </script>
+
 </body>
 
 </html>
