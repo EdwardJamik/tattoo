@@ -775,14 +775,176 @@ main {
         margin: 0 auto;
         border-radius: 24px;
         padding: 32px 24px 32px;
+        margin-right: 8px;
+
+        &.masters,
+        &.free {
+          background-color: #fff;
+
+          & .title {
+            display: flex;
+
+            &.pre {
+              position: relative;
+              margin-top: 30px;
+              padding-top: 32px;
+
+              &::before {
+                content: " ";
+                position: absolute;
+                top: 0;
+                left: -24px;
+                border: 1px solid #1b1b1d1a;
+                height: 2px;
+                width: 358px;
+              }
+            }
+
+            & .icon {
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              width: 40px;
+              height: 40px;
+              border: 1px solid #1b1b1d1a;
+              border-radius: 8px;
+              margin-right: 12px;
+            }
+
+            & h4 {
+              font-family: Inter Tight;
+              font-weight: 600;
+              font-style: SemiBold;
+              font-size: 18px;
+              line-height: 132%;
+              letter-spacing: 0%;
+              vertical-align: bottom;
+              color: var(--black-color);
+              max-width: 258px;
+            }
+          }
+
+          & .description {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            margin-top: 16px;
+            & li {
+              position: relative;
+              font-family: Inter Tight;
+              font-weight: 400;
+              font-style: Regular;
+              font-size: 14px;
+              line-height: 140%;
+              letter-spacing: 0%;
+              vertical-align: bottom;
+              color: var(--black-color);
+              padding: 0;
+            }
+          }
+
+          & > .prices {
+            margin: 32px auto 0;
+
+            & > div {
+              text-align: center;
+
+              &.undo {
+                font-family: Cormorant Garamond;
+                font-weight: 400;
+                font-size: 24px;
+                line-height: 100%;
+                letter-spacing: -2.5%;
+                text-align: center;
+                vertical-align: bottom;
+                text-decoration: line-through;
+                color: #1b1b1d80;
+                margin-bottom: 8px;
+              }
+
+              &.current {
+                font-family: Cormorant Garamond;
+                font-weight: 400;
+                font-style: Regular;
+                font-size: 40px;
+                line-height: 100%;
+                letter-spacing: -2.5%;
+                text-align: center;
+                vertical-align: bottom;
+                color: var(--black-color);
+                margin-bottom: 29px;
+              }
+            }
+          }
+
+          & > a {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 300px;
+            height: 98px;
+            position: relative;
+            font-family: Inter Tight;
+            font-weight: 500;
+            font-style: Medium;
+            font-size: 14px;
+            line-height: 140%;
+            letter-spacing: 8%;
+            text-align: center;
+            vertical-align: bottom;
+            text-transform: uppercase;
+            color: var(--red-color);
+
+            &:not(:last-child) {
+              margin-bottom: 24px;
+            }
+
+            &.free {
+              margin-top: 24px;
+            }
+
+            &::before {
+              position: absolute;
+              content: " ";
+              background-image: url("../image/Ellipse 1.svg");
+              background-repeat: no-repeat;
+              background-size: contain;
+              width: 300px;
+              height: 98px;
+            }
+
+            &::after {
+              position: absolute;
+              content: " ";
+              background-image: url("../image/Ellipse 2.svg");
+              background-repeat: no-repeat;
+              background-size: contain;
+              width: 300px;
+              height: 98px;
+            }
+          }
+
+          & .comment {
+            margin-top: 12px;
+            text-align: center;
+
+            font-family: Inter Tight;
+            font-weight: 400;
+            font-size: 14px;
+            line-height: 140%;
+            letter-spacing: 0%;
+            text-align: center;
+            vertical-align: bottom;
+            color: var(--black-color);
+          }
+        }
 
         & > h4 {
           position: relative;
           font-family: Cormorant Garamond;
           font-weight: 400;
-          font-style: Regular;
-          font-size: 32px;
-          line-height: 112.00000000000001%;
+          font-size: 30px;
+          line-height: 112%;
           letter-spacing: -2.5%;
           text-align: center;
           vertical-align: bottom;
@@ -848,6 +1010,18 @@ main {
 
             &.unlock {
               background-image: url("../image/unlock.svg");
+              background-repeat: no-repeat;
+              background-size: contain;
+            }
+
+            &.job {
+              background-image: url("../image/briefcase.svg");
+              background-repeat: no-repeat;
+              background-size: contain;
+            }
+
+            &.connect {
+              background-image: url("../image/like.svg");
               background-repeat: no-repeat;
               background-size: contain;
             }
@@ -996,9 +1170,9 @@ main {
       vertical-align: bottom;
       text-transform: uppercase;
       color: var(--black-color);
-      margin-bottom: 32px;
       padding: 0 16px;
       max-width: 358px;
+      margin: 0 auto 32px;
     }
 
     & .slider {
@@ -1192,6 +1366,33 @@ main {
       color: var(--black-color);
       max-width: 360px;
       margin: 0 auto 32px;
+
+      & > span {
+        font-family: Cormorant Garamond;
+        font-weight: 400;
+        font-style: Regular;
+        font-size: 36px;
+        line-height: 110.00000000000001%;
+        letter-spacing: -2.5%;
+        text-align: center;
+        vertical-align: bottom;
+        text-transform: uppercase;
+        color: var(--black-color);
+        animation: sway 1s infinite;
+
+        @keyframes sway {
+          0%,
+          100% {
+            opacity: 1;
+          }
+          25% {
+            opacity: 1;
+          }
+          75% {
+            opacity: 0;
+          }
+        }
+      }
     }
 
     & img {

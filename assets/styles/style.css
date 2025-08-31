@@ -875,13 +875,156 @@ main {
   margin: 0 auto;
   border-radius: 24px;
   padding: 32px 24px 32px;
+  margin-right: 8px;
+}
+.prices .container .list .item.masters, .prices .container .list .item.free {
+  background-color: #fff;
+}
+.prices .container .list .item.masters .title, .prices .container .list .item.free .title {
+  display: flex;
+}
+.prices .container .list .item.masters .title.pre, .prices .container .list .item.free .title.pre {
+  position: relative;
+  margin-top: 30px;
+  padding-top: 32px;
+}
+.prices .container .list .item.masters .title.pre::before, .prices .container .list .item.free .title.pre::before {
+  content: " ";
+  position: absolute;
+  top: 0;
+  left: -24px;
+  border: 1px solid rgba(27, 27, 29, 0.1019607843);
+  height: 2px;
+  width: 358px;
+}
+.prices .container .list .item.masters .title .icon, .prices .container .list .item.free .title .icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border: 1px solid rgba(27, 27, 29, 0.1019607843);
+  border-radius: 8px;
+  margin-right: 12px;
+}
+.prices .container .list .item.masters .title h4, .prices .container .list .item.free .title h4 {
+  font-family: Inter Tight;
+  font-weight: 600;
+  font-style: SemiBold;
+  font-size: 18px;
+  line-height: 132%;
+  letter-spacing: 0%;
+  vertical-align: bottom;
+  color: var(--black-color);
+  max-width: 258px;
+}
+.prices .container .list .item.masters .description, .prices .container .list .item.free .description {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-top: 16px;
+}
+.prices .container .list .item.masters .description li, .prices .container .list .item.free .description li {
+  position: relative;
+  font-family: Inter Tight;
+  font-weight: 400;
+  font-style: Regular;
+  font-size: 14px;
+  line-height: 140%;
+  letter-spacing: 0%;
+  vertical-align: bottom;
+  color: var(--black-color);
+  padding: 0;
+}
+.prices .container .list .item.masters > .prices, .prices .container .list .item.free > .prices {
+  margin: 32px auto 0;
+}
+.prices .container .list .item.masters > .prices > div, .prices .container .list .item.free > .prices > div {
+  text-align: center;
+}
+.prices .container .list .item.masters > .prices > div.undo, .prices .container .list .item.free > .prices > div.undo {
+  font-family: Cormorant Garamond;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 100%;
+  letter-spacing: -2.5%;
+  text-align: center;
+  vertical-align: bottom;
+  text-decoration: line-through;
+  color: rgba(27, 27, 29, 0.5019607843);
+  margin-bottom: 8px;
+}
+.prices .container .list .item.masters > .prices > div.current, .prices .container .list .item.free > .prices > div.current {
+  font-family: Cormorant Garamond;
+  font-weight: 400;
+  font-style: Regular;
+  font-size: 40px;
+  line-height: 100%;
+  letter-spacing: -2.5%;
+  text-align: center;
+  vertical-align: bottom;
+  color: var(--black-color);
+  margin-bottom: 29px;
+}
+.prices .container .list .item.masters > a, .prices .container .list .item.free > a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 300px;
+  height: 98px;
+  position: relative;
+  font-family: Inter Tight;
+  font-weight: 500;
+  font-style: Medium;
+  font-size: 14px;
+  line-height: 140%;
+  letter-spacing: 8%;
+  text-align: center;
+  vertical-align: bottom;
+  text-transform: uppercase;
+  color: var(--red-color);
+}
+.prices .container .list .item.masters > a:not(:last-child), .prices .container .list .item.free > a:not(:last-child) {
+  margin-bottom: 24px;
+}
+.prices .container .list .item.masters > a.free, .prices .container .list .item.free > a.free {
+  margin-top: 24px;
+}
+.prices .container .list .item.masters > a::before, .prices .container .list .item.free > a::before {
+  position: absolute;
+  content: " ";
+  background-image: url("../image/Ellipse 1.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 300px;
+  height: 98px;
+}
+.prices .container .list .item.masters > a::after, .prices .container .list .item.free > a::after {
+  position: absolute;
+  content: " ";
+  background-image: url("../image/Ellipse 2.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 300px;
+  height: 98px;
+}
+.prices .container .list .item.masters .comment, .prices .container .list .item.free .comment {
+  margin-top: 12px;
+  text-align: center;
+  font-family: Inter Tight;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 140%;
+  letter-spacing: 0%;
+  text-align: center;
+  vertical-align: bottom;
+  color: var(--black-color);
 }
 .prices .container .list .item > h4 {
   position: relative;
   font-family: Cormorant Garamond;
   font-weight: 400;
-  font-style: Regular;
-  font-size: 32px;
+  font-size: 30px;
   line-height: 112%;
   letter-spacing: -2.5%;
   text-align: center;
@@ -943,6 +1086,16 @@ main {
 }
 .prices .container .list .item .description li.unlock {
   background-image: url("../image/unlock.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+.prices .container .list .item .description li.job {
+  background-image: url("../image/briefcase.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+.prices .container .list .item .description li.connect {
+  background-image: url("../image/like.svg");
   background-repeat: no-repeat;
   background-size: contain;
 }
@@ -1074,9 +1227,9 @@ main {
   vertical-align: bottom;
   text-transform: uppercase;
   color: var(--black-color);
-  margin-bottom: 32px;
   padding: 0 16px;
   max-width: 358px;
+  margin: 0 auto 32px;
 }
 .reviews .container .slider {
   padding: 0 0 0 16px;
@@ -1233,6 +1386,30 @@ main {
   color: var(--black-color);
   max-width: 360px;
   margin: 0 auto 32px;
+}
+.question .container h4 > span {
+  font-family: Cormorant Garamond;
+  font-weight: 400;
+  font-style: Regular;
+  font-size: 36px;
+  line-height: 110%;
+  letter-spacing: -2.5%;
+  text-align: center;
+  vertical-align: bottom;
+  text-transform: uppercase;
+  color: var(--black-color);
+  animation: sway 1s infinite;
+}
+@keyframes sway {
+  0%, 100% {
+    opacity: 1;
+  }
+  25% {
+    opacity: 1;
+  }
+  75% {
+    opacity: 0;
+  }
 }
 .question .container img {
   max-width: 300px;
