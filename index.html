@@ -444,7 +444,7 @@
         <h4>Залишились питання<span>?</span></h4>
         <img src="./assets/image/question.png" alt="Question">
 
-        <a href="#">напиши мені</a>
+        <a href="https://t.me/borozenets_t">напиши мені</a>
 
         <div class="other">
           <a
@@ -563,7 +563,6 @@
 
     })
 
-    // jQuery
     $(document).ready(function () {
       let counted = false
 
@@ -603,14 +602,12 @@
       $('.list_button a').on('click', function (e) {
         e.preventDefault()
 
-        const text = $(this).text().trim() // текст кнопки
+        const text = $(this).text().trim()
 
-        // Спершу скролимо до блоку
         $('html, body').animate({
           scrollTop: $('.prices').offset().top - 50
         }, 600)
 
-        // Знаходимо відповідний слайд по тексту
         setTimeout(() => {
           let $targetItem
 
