@@ -183,7 +183,8 @@
               </div>
             </div>
 
-            <a href="https://t.me/vechnayatattoo_bot?start=w43943991--base">Детальніше</a>
+            <a href="https://t.me/vechnayatattoo_bot?start=w43943991--base" target="_blank"
+              class="join_link">Детальніше</a>
           </div>
           <div class="item">
             <h4>Підвищення кваліфікації</h4>
@@ -222,7 +223,8 @@
               </div>
             </div>
 
-            <a href="https://t.me/vechnayatattoo_bot?start=w43943991--upgrade">Детальніше</a>
+            <a href="https://t.me/vechnayatattoo_bot?start=w43943991--upgrade" target="_blank"
+              class="join_link">Детальніше</a>
           </div>
           <div class="item masters">
             <div class="title">
@@ -243,7 +245,8 @@
               </div>
             </div>
 
-            <a href="https://t.me/vechnayatattoo_bot?start=w43943991--mk_flower">Купити зараз</a>
+            <a href="https://t.me/vechnayatattoo_bot?start=w43943991--mk_flower" target="_blank"
+              class="join_link">Купити зараз</a>
             <p class="comment">*Доступ до матеріалів — 6 місяців</p>
 
             <div class="title pre">
@@ -263,7 +266,8 @@
               </div>
             </div>
 
-            <a href="https://t.me/vechnayatattoo_bot?start=w43943991--mk_fineline">Купити зараз</a>
+            <a href="https://t.me/vechnayatattoo_bot?start=w43943991--mk_fineline" target="_blank"
+              class="join_link">Купити зараз</a>
             <p class="comment">*Доступ до матеріалів — 6 місяців</p>
 
           </div>
@@ -279,7 +283,8 @@
               <li>/ 10 помилок початківців у тату-мистецтві</li>
             </ul>
 
-            <a href="https://t.me/vechnayatattoo_bot?start=w43877071" class="free">Отримати зараз</a>
+            <a href="https://t.me/vechnayatattoo_bot?start=w43877071" target="_blank" class="join_link"
+              class="free">Отримати зараз</a>
           </div>
         </div>
       </div>
@@ -444,7 +449,7 @@
         <h4>Залишились питання<span>?</span></h4>
         <img src="./assets/image/question.png" alt="Question">
 
-        <a href="https://t.me/borozenets_t">напиши мені</a>
+        <a href="https://t.me/borozenets_t" target="_blank" class="join_link">напиши мені</a>
 
         <div class="other">
           <a
@@ -628,7 +633,27 @@
     });
 
   </script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      var links = document.querySelectorAll('.join_link')
 
+      for (var i = 0; i < links.length; i++) {
+        links[i].addEventListener('click', function (e) {
+          e.preventDefault()
+
+          var url = this.href
+
+          window.location.href = url
+
+          setTimeout(function () {
+            if (window.Telegram && window.Telegram.WebApp) {
+              Telegram.WebApp.close()
+            }
+          }, 100)
+        })
+      }
+    });
+  </script>
 </body>
 
 </html>
