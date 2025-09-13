@@ -1129,6 +1129,7 @@ main {
   vertical-align: bottom;
   color: #fff;
   padding-left: 20px;
+  font-weight: 200;
 }
 .prices .container .list .item .info ul li::before {
   position: absolute;
