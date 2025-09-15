@@ -983,6 +983,7 @@ main {
   vertical-align: bottom;
   text-transform: uppercase;
   color: var(--red-color);
+  margin-top: 20px;
 }
 .prices .container .list .item.masters > a:not(:last-child), .prices .container .list .item.free > a:not(:last-child) {
   margin-bottom: 24px;
@@ -1211,6 +1212,27 @@ main {
   background-size: contain;
   width: 300px;
   height: 98px;
+}
+.prices .container .list .item > a.join_pay {
+  background-image: url("../image/mono_pay_button.png");
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 40px;
+  max-width: 220px;
+  margin: 0 auto;
+}
+.prices .container .list .item > a.join_pay.white {
+  background-image: url("../image/mono_pay_button_white.png");
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.prices .container .list .item > a.join_pay::before {
+  display: none;
+}
+.prices .container .list .item > a.join_pay::after {
+  display: none;
 }
 
 .reviews .container {
